@@ -47,6 +47,27 @@ Jmac.home.init_methods = function () {
         });
       });
 
+      function preload(arrayOfImages) {
+          $(arrayOfImages).each(function(){
+          $('<img/>')[0].src = this;
+          // Alternatively you could use:
+          // (new Image()).src = this;
+            });
+      }
+
+      // Usage:
+
+      preload([
+          'images/web/2-com.png',
+          'images/web/bulwark.png',
+          'images/web/columbia.png',
+          'images/web/cub.png',
+          'images/web/horace.png',
+          'images/web/red.png',
+          'images/web/vf.png',
+          'images/web/yanmar.png',
+      ]);
+
       //Remove arrow bounce
       if(t.$nav.hasClass('affix'))
       {
