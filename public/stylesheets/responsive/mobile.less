@@ -1,0 +1,97 @@
+
+.welcome-hello {
+    font-size: 2em;
+}
+
+&.welcome-from {
+    margin-top: 15px;
+    font-size: 1.5em;
+}
+
+#about {
+    .profile-pic {
+        height: 200px;
+    }
+}
+
+.portfolio {
+  .portfolio-item {
+      width: 100%;
+      margin: 30px 5px;
+
+      .item-image {
+          height: 100%;
+          vertical-align: middle;
+          width: 33%;
+          float: left;
+          display: inline-block;
+
+          .logo {
+              width: 80%;
+              display: inline-block;
+          }
+      }
+
+      .item-information {
+          width: 66%;
+          display: inline-block;
+
+          .item-background {
+              display: none;
+          }
+
+          .item-description {
+              height: 100%;
+
+              h4 {
+                  color: #000;
+                  text-transform: uppercase;
+                  font-size: 24px;
+                  margin: 0 0 5px;
+              }
+              div {
+                  font-size: 13px;
+                  color: #000;
+                  line-height: 15px;
+
+                  a {
+                      color: #FFF;
+                      text-decoration: none;
+                  }
+              }
+
+              .item-icons {
+                  display: none;
+              }
+          }
+      }
+  }
+}
+
+.footer {
+    ul {
+        padding-left: 0;
+
+        li {
+            font-size: 1.2em;
+            margin: 0 8px;
+        }
+    }
+    a {
+        &.github, &.steam {
+            color: white;
+        }
+        &.linkedin {
+            color: @linkedin;
+        }
+        &.facebook {
+            color: @facebook;
+        }
+        &.twitter {
+            color: @twitter;
+        }
+        &.google {
+            color: @google;
+        }
+    }
+}
