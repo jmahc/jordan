@@ -7,7 +7,274 @@
 <body class="home-page" data-spy="scroll" data-target="#navbar">
 
   <% include ../partials/nav.ejs %>
-  <% include ../partials/home.ejs %>
+
+  <section id="video">
+      <div class="homepage-hero-module">
+          <div class="video-container">
+              <div class="filter no-stretch"></div>
+              <video autoplay loop class="video-js">
+                  <source src="videos/nashville480.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+                  <source src="videos/nashville480.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+              </video>
+              <div class="poster">
+                  <img class="no-stretch" src="images/location.jpg" alt="">
+              </div>
+          </div>
+      </div>
+  </section>
+  <section id="home">
+      <div class="welcome">
+          <h5 class="welcome-hello">Hello, world!</h5>
+          <h5 class="welcome-from">
+              Made with
+              <i class="fa fa-heart"></i>
+              by Jordan McArdle
+          </h5>
+      </div>
+      <div class="arrow bounce"></div>
+  </section>
+  <section id="about" class="ts bs">
+      <div class="container intro">
+          <div class="intro-title centered">
+              <h2 class="bs">
+                  Full stack web developer with
+                  a passion for frontend and UX.
+              </h2>
+          </div>
+          <div class="intro-blurb">
+              <div class="row">
+                  <div class="col-md-6">
+                      <p class="lead">
+                          My interest in web development originated at a young age while playing the online video game, <strong>Neopets</strong>, where customizing my pet and store's HTML page took priority over the actual game.
+                      </p>
+                      <p class="lead">
+                          Since then, I have guided this interest into both a career and hobby.
+                          I graduated from the University of Alabama in December 2014 with a degree in Management Information Systems. The following month in January 2015, I began working at a marketing firm, 2-COM,
+                          where I serve as lead software developer on client sites.
+                      </p>
+                  </div>
+                  <div class="col-md-6 profile-pic-container">
+                      <img class="profile-pic" src="images/current.png" />
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <svg id="bigHalfCircle" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path d="M0 100 C40 0 60 0 100 100 Z"/>
+  </svg>
+  <section id="projects" class="bs">
+      <div class="container centered">
+          <h2>Take a look at some projects that I have worked on</h2>
+      </div>
+      <div class="row ts">
+          <ul class="portfolio">
+              <li class="portfolio-item circle bw">
+                  <div class="item-image">
+                      <img class="logo" src="images/clients/bulwark.png" />
+                  </div>
+                  <div class="item-information">
+                      <div class="item-background"></div>
+                      <div class="item-description">
+                          <div class="item-details">
+                              <h4 data-link="http://bulwark.com/calculator">Bulwark FR</h4>
+                              <p>
+                                  I recently implemented a redesign of the site and regularly manage site updates as requested by the client.
+                                  I also created a Calculator application that allows users to determine which piece of clothing they needed to achieve a certain Fire-Resistant level for their jobs.
+                              </p>
+                          </div>
+                          <div class="item-icons">
+                              <div class="icon-modal" data-toggle="modal" data-target="#myModal">
+                                  <span class="fa-stack fa-lg faa-parent animated-hover">
+                                      <i class="fa fa-square fa-stack-2x"></i>
+                                      <i class="fa fa-search fa-stack-1x"></i>
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="portfolio-item circle hs">
+                  <div class="item-image">
+                      <img class="logo" src="images/clients/hs.png" />
+                  </div>
+                  <div class="item-information">
+                      <div class="item-background">
+                      </div>
+                      <div class="item-description">
+                          <div class="item-details">
+                              <h4 data-link="http://horacesmall.com">Horace Small</h4>
+                              <p>
+                                  I am responsible for maintaining site updates that include event updates, product feature updates, and image changes.
+                              </p>
+                          </div>
+                          <div class="item-icons">
+                              <div class="icon-modal" data-toggle="modal" data-target="#myModal">
+                                  <span class="fa-stack fa-lg faa-parent animated-hover">
+                                      <i class="fa fa-square fa-stack-2x"></i>
+                                      <i class="fa fa-search fa-stack-1x"></i>
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="portfolio-item circle rka">
+                  <div class="item-image">
+                      <img class="logo" src="images/clients/rka.png" />
+                  </div>
+                  <div class="item-information">
+                      <div class="item-background"></div>
+                      <div class="item-description">
+                          <div class="item-details">
+                              <h4 data-link="http://redkapautomotive.com">Red Kap Automotive</h4>
+                              <p>
+                                This site continously features promotional pages that I create, as well as various product feature changes, image updates, and other client needs.
+                              </p>
+                          </div>
+                          <div class="item-icons">
+                              <div class="icon-modal" data-toggle="modal" data-target="#myModal">
+                                  <span class="fa-stack fa-lg faa-parent animated-hover">
+                                      <i class="fa fa-square fa-stack-2x"></i>
+                                      <i class="fa fa-search fa-stack-1x"></i>
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="portfolio-item circle vf">
+                  <div class="item-image">
+                      <img class="logo" src="images/clients/vf.png" />
+                  </div>
+                  <div class="item-information">
+                      <div class="item-background"></div>
+                      <div class="item-description">
+                          <div class="item-details">
+                            <h4 data-link="http://wpg.vfimagewear.com">VF Imagewear</h4>
+                            <p>
+                                I assisted in developing a digital Wholesale Product Guide that VF Imagewear, Inc. utilizes across all brands.
+                                After a successful implementation, VF Imagewear, Inc. decided to discontinue their print version and reference this site as the source.
+                                I am in the process of gathering requirements for version 2.0.
+                            </p>
+                          </div>
+                          <div class="item-icons">
+                              <div class="icon-modal" data-toggle="modal" data-target="#myModal">
+                                  <span class="fa-stack fa-lg faa-parent animated-hover">
+                                      <i class="fa fa-square fa-stack-2x"></i>
+                                      <i class="fa fa-search fa-stack-1x"></i>
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="portfolio-item yt">
+                  <div class="item-image">
+                    <img class="logo" src="images/clients/yt.png" />
+                  </div>
+                  <div class="item-information">
+                      <div class="item-background"></div>
+                      <div class="item-description">
+                          <div class="item-details">
+                              <h4 data-link="http://yanmartractor.com">Yanmar Tractors</h4>
+                              <p>
+                                  I regularly maintain pricing and promotional changes throughout the year in accordance with Yanmar Tractor's current deals.
+                                  I am also responsible for any site maintenance or new images.
+                              </p>
+                          </div>
+                          <div class="item-icons">
+                              <div class="icon-modal" data-toggle="modal" data-target="#myModal">
+                                  <span class="fa-stack fa-lg faa-parent animated-hover">
+                                      <i class="fa fa-square fa-stack-2x"></i>
+                                      <i class="fa fa-search fa-stack-1x"></i>
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="portfolio-item col">
+                  <div class="item-image">
+                      <img class="logo dark-image" src="images/clients/col.png" />
+                  </div>
+                  <div class="item-information">
+                      <div class="item-background"></div>
+                      <div class="item-description">
+                          <div class="item-details">
+                              <h4 data-link="http://columbiaequip.com">Columbia</h4>
+                              <p>
+                                  I assisted in developing this multi-lingual site for Columbia by implementing several pieces of functionality including the distributor locator, responsive mobile menu, and dealer locator administrative tool.
+                                  Any issue with the locator, managing new/existing distributors, styling, or financing information updates fall under my responsibilities.
+                              </p>
+                          </div>
+                          <div class="item-icons">
+                              <div class="icon-modal test" data-toggle="modal" data-target="#myModal">
+                                  <span class="fa-stack fa-lg faa-parent animated-hover">
+                                      <i class="fa fa-square fa-stack-2x"></i>
+                                      <i class="fa fa-search fa-stack-1x"></i>
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="portfolio-item com">
+                  <div class="item-image">
+                      <img class="logo" src="images/clients/2com.png" />
+                  </div>
+                  <div class="item-information">
+                      <div class="item-background"></div>
+                      <div class="item-description">
+                          <div class="item-details">
+                              <h4 data-link="http://2-com.net">2-COM</h4>
+                              <p>
+                                  I worked alongside an internal team to develop a proprietary e-commerce platform for 2-COM's clients.
+                                  My major contributions include creating a front-end template, multi-lingual capabilities, and order reporting.
+                                  Technologies involved were NodeJS, AngularJS and MongoDB, alongside NetSuite's and 2-COM's database system.
+                              </p>
+                          </div>
+                          <div class="item-icons">
+                              <div class="icon-modal" data-toggle="modal" data-target="#myModal">
+                                  <span class="fa-stack fa-lg faa-parent animated-hover">
+                                      <i class="fa fa-square fa-stack-2x"></i>
+                                      <i class="fa fa-search fa-stack-1x"></i>
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="portfolio-item cub">
+                  <div class="item-image">
+                      <img class="logo dark-image" src="images/clients/cub.png" />
+                  </div>
+                  <div class="item-information">
+                      <div class="item-background"></div>
+                      <div class="item-description">
+                          <div class="item-details">
+                              <h4 data-link="http://cubcadetondemandmarketing.com">Cub Cadet</h4>
+                              <p>
+                                  This is the first instance of 2-COM's proprietary e-commerce platform.
+                                  For this instance, I assisted in managing the outsourced team to ensure the quality of deliverables and effective code.
+                              </p>
+                          </div>
+                          <div class="item-icons">
+                              <div class="icon-modal" data-toggle="modal" data-target="#myModal">
+                                  <span class="fa-stack fa-lg faa-parent animated-hover">
+                                      <i class="fa fa-square fa-stack-2x"></i>
+                                      <i class="fa fa-search fa-stack-1x"></i>
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+      </div>
+  </section>
+
+
   <% include ../partials/modal.ejs %>
   <% include ../partials/footer.ejs %>
 </body>
