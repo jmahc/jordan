@@ -18,18 +18,18 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-app.get('/weather', function(request, response) {
-  response.render('pages/weather');
-});
+// app.get('/weather', function(request, response) {
+//   response.render('pages/weather');
+// });
 
 //Weather page
-// app.get('/weather', function(request, response) {
-// 	weather.currentWeather('Nashville', function(weather) {
-// 		response.render('pages/weather', {weather: weather});
-// 	}, function(err) {
-// 		res.status(500).json(err);
-// 	});
-// });
+app.get('/weather', function(request, response) {
+	weather.currentWeather('Nashville', function(weather) {
+		response.render('pages/weather', {weather: weather});
+	}, function(err) {
+		res.status(500).json(err);
+	});
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

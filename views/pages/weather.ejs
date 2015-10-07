@@ -4,10 +4,11 @@
   <% include ../partials/header.ejs %>
   <style>
     footer {
-      position: absolute;
+      /*position: relative;
       bottom: 0;
       left: 0;
-      right: 0;
+      right: 0;*/
+      display: none;
     }
   </style>
 </head>
@@ -19,24 +20,231 @@
   <section id="weather">
     <div class="container centered ts bs">
       <h3>Current weather for
-        <span id="weather_location"></span>
+        <span class="weather-location"></span>
       </h3>
       <div class="row centered">
-        <div id="#weather_animation" class="col-md-12">
-          <div class="sky"></div>
-          <div class="clouds"></div>
-          <div class="light"></div>
-          <div class="stars"></div>
-          <div class="precipitation"></div>
-          <div class="storm"></div>
+        <div class="weather-animation" class="col-md-12">
+          <div class="centered animation">
+            <div class="sky"></div>
+            <div class="clouds">
+            </div>
+            <div class="light"></div>
+            <div class="squiggle-container">
+              <span class="squiggles s-top">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </span>
+              <span class="squiggles s-right">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </span>
+              <span class="squiggles  s-bottom">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </span>
+              <span class="squiggles s-left">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </span>
+              <span class="squiggles s-top-right">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </span>
+              <span class="squiggles s-top-left">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </span>
+              <span class="squiggles s-bottom-right">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </span>
+              <span class="squiggles s-bottom-left">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </span>
+            </div>
+            <div class="stars"></div>
+            <div class="precipitation"></div>
+            <div class="storm"></div>
+            <div class="grass"></div>
+            <div class="ground"></div>
+          </div>
           </div>
         </div>
-        <span id="weather_current"></span> at <span id="weather_timeOfDay"></span>
+        <span class="weather-current"></span> during the <span class="weather-time-of-day"></span>
+      </div>
+      <div class="row centered">
+        <button onclick="getLocation()">Try it!</button>
+        <h1 id="demo"></h1>
       </div>
     </div>
   </section>
 
   <% include ../partials/footer.ejs %>
+
+  <script>
+  var weather = <%- weather %>;
+  </script>
   <script src="scripts/weather.js">
   </script>
 </body>

@@ -155,6 +155,110 @@
 .slideInDown {
   animation-name: slideInDown;
 }
+@keyframes wave {
+  0% {
+    height: 2%;
+    left: -2%;
+    background: #FFFF00;
+  }
+  5% {
+    background: #CCCC00;
+  }
+  10% {
+    height: 10%;
+    margin-top: -5%;
+    background: #FFFF33;
+  }
+  15% {
+    background: #E6E600;
+  }
+  20% {
+    height: 20%;
+    margin-top: -17%;
+    background: #FFFF99;
+  }
+  25% {
+    background: #FFFF4D;
+  }
+  30% {
+    height: 10%;
+    margin-top: -5%;
+    background: #FFFFB2;
+  }
+  35% {
+    background: #FFFF19;
+  }
+  40% {
+    height: 20%;
+    left: 20%;
+    margin-top: -17%;
+    background: #FFFF00;
+  }
+  45% {
+    background: #CCCC00;
+  }
+  50% {
+    height: 10%;
+    margin-top: -5%;
+    background: #FFFF33;
+  }
+  55% {
+    background: #E6E600;
+  }
+  60% {
+    height: 20%;
+    left: 40%;
+    margin-top: -17%;
+    background: #FFFF99;
+  }
+  65% {
+    background: #FFFF4D;
+  }
+  70% {
+    height: 10%;
+    margin-top: -5%;
+    background: #FFFFB2;
+  }
+  75% {
+    background: #FFFF19;
+  }
+  80% {
+    height: 20%;
+    left: 60%;
+    margin-top: -17%;
+    background: #FFFF00;
+  }
+  85% {
+    background: #CCCC00;
+  }
+  90% {
+    height: 10%;
+    margin-top: -5%;
+    background: #FFFF33;
+  }
+  95% {
+    background: #E6E600;
+  }
+  100% {
+    height: 20%;
+    margin-top: -17%;
+    left: 100%;
+    background: #FFFF99;
+  }
+}
+@keyframes cloudFloat {
+  0% {
+    animation-timing-function: ease-in;
+    transform: translate3d(50px, 4px, 0px);
+  }
+  50% {
+    animation-timing-function: ease-out;
+    transform: translate3d(350px, -3px, 0px);
+  }
+  100% {
+    transform: translate3d(600px, 5px, 0px);
+  }
+}
 body {
   font: 13px/1.1 Helvetica, sans-serif;
   padding: 20px 0;
