@@ -2,6 +2,14 @@
 <html>
 <head>
   <% include ../partials/header.ejs %>
+  <style>
+    footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  </style>
 </head>
 
 <body class="home-page" data-spy="scroll" data-target="#navbar">
@@ -10,13 +18,26 @@
 
   <section id="weather">
     <div class="container centered ts bs">
-      <h3>Hello!</h3>
-      <%=weather%>
+      <h3>Current weather for
+        <span id="weather_location"></span>
+      </h3>
+      <div class="row centered">
+        <div id="#weather_animation" class="col-md-12">
+          <div class="sky"></div>
+          <div class="clouds"></div>
+          <div class="light"></div>
+          <div class="stars"></div>
+          <div class="precipitation"></div>
+          <div class="storm"></div>
+          </div>
+        </div>
+        <span id="weather_current"></span> at <span id="weather_timeOfDay"></span>
+      </div>
     </div>
   </section>
 
-
-  <% include ../partials/modal.ejs %>
   <% include ../partials/footer.ejs %>
+  <script src="scripts/weather.js">
+  </script>
 </body>
 </html>
