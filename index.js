@@ -22,13 +22,14 @@ app.get('/', function(request, response) {
 //   response.render('pages/weather');
 // });
 
+var apikey = weather.getApiKey();
+console.log('This is the api key...')
+console.log(apikey)
+
+
 //Weather page
 app.get('/weather', function(request, response) {
-	weather.currentWeather('Nashville', function(weather) {
-		response.render('pages/weather', {weather: weather});
-	}, function(err) {
-		res.status(500).json(err);
-	});
+  response.render('pages/weather', { apikey: apikey });
 });
 
 app.listen(app.get('port'), function() {
