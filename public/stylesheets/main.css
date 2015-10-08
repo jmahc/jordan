@@ -251,17 +251,72 @@
     background: #FFFF99;
   }
 }
-@keyframes cloudFloat {
+@-webkit-keyframes cloudFloat {
   0% {
-    animation-timing-function: ease-in;
-    transform: translate3d(50px, 4px, 0px);
+    left: 0;
   }
   50% {
-    animation-timing-function: ease-out;
-    transform: translate3d(350px, -3px, 0px);
+    left: 58%;
   }
   100% {
-    transform: translate3d(600px, 5px, 0px);
+    left: -20%;
+  }
+}
+/* Animations */
+@keyframes slide-in-left {
+  0% {
+    transform: translate(-100%);
+  }
+  10% {
+    transform: translate(0);
+  }
+  80% {
+    transform: translate(0);
+  }
+  90% {
+    transform: translate(-100%);
+  }
+  100% {
+    transform: translate(-100%);
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    transform: translate(100%);
+  }
+  10% {
+    transform: translate(0);
+  }
+  80% {
+    transform: translate(0);
+  }
+  90% {
+    transform: translate(100%);
+  }
+  100% {
+    transform: translate(100%);
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    bottom: -60px;
+  }
+  50% {
+    bottom: 0;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    top: -100%;
+  }
+  50% {
+    top: -55%;
+  }
+  100% {
+    top: -10%;
   }
 }
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -7085,7 +7140,12 @@ svg#bigHalfCircle path {
 .mobile-hide {
   display: none;
 }
-.row {
+.row,
+.form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+.form-horizontal .form-group {
   margin-left: 0;
   margin-right: 0;
 }
@@ -7183,7 +7243,9 @@ svg#bigHalfCircle path {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  -moz-flex-flow: row wrap;
   -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
   justify-content: center;
   line-height: 30px;
 }
@@ -7762,9 +7824,14 @@ svg#bigHalfCircle path {
   height: 400px;
 }
 #weather .weather-animation .animation .sky {
-  z-index: 10;
+  z-index: -1;
+  position: relative;
   width: 100%;
   height: 100%;
+  animation: slide-in-top 3.5s linear;
+  -webkit-animation-iteration-count: 1;
+  /* Chrome, Safari, Opera */
+  animation-iteration-count: 1;
 }
 #weather .weather-animation .animation .sky.day {
   background-color: #0099FF;
@@ -7879,6 +7946,7 @@ svg#bigHalfCircle path {
   border-radius: 50%;
   width: 100px;
   height: 100px;
+  animation: fade-in 4s linear;
 }
 #weather .weather-animation .animation .light.sun {
   background-color: #FFFF00;
@@ -7893,6 +7961,10 @@ svg#bigHalfCircle path {
   left: 0;
   right: 0;
   background-color: #009933;
+  animation: slide-in-bottom 7s linear;
+  -webkit-animation-iteration-count: 1;
+  /* Chrome, Safari, Opera */
+  animation-iteration-count: 1;
 }
 #weather .weather-animation .animation .ground {
   z-index: 12;
@@ -7902,6 +7974,10 @@ svg#bigHalfCircle path {
   left: 0;
   right: 0;
   background-color: #996633;
+  animation: slide-in-bottom 7s linear;
+  -webkit-animation-iteration-count: 1;
+  /* Chrome, Safari, Opera */
+  animation-iteration-count: 1;
 }
 .squiggle-container {
   position: absolute;

@@ -1,9 +1,42 @@
-
 // ***** FOR SURE
 var weatherApiKey = '42dea182f5d54734a20210806150610';
 var options = {};
 var query;
-var weather = {};
+var weather = {
+    "location": {
+        "name": "Brentwood",
+        "region": "Tennessee",
+        "country": "UnitedStatesofAmerica",
+        "lat": 36.03,
+        "lon": -86.78,
+        "tz_id": "America/Chicago",
+        "localtime_epoch": 1444301187,
+        "localtime": "2015-10-08 10:46"
+    },
+    "current": {
+        "last_updated_epoch": 1444300204,
+        "last_updated": "2015-10-08 10:30",
+        "temp_c": 23,
+        "temp_f": 73.4,
+        "condition": {
+            "text": "Partly Cloudy",
+            "icon": "//cdn.apixu.com/weather/64x64/day/116.png",
+            "code": 1003
+        },
+        "wind_mph": 4.3,
+        "wind_kph": 6.8,
+        "wind_degree": 180,
+        "wind_dir": "S",
+        "pressure_mb": 1020,
+        "pressure_in": 30.6,
+        "precip_mm": 0,
+        "precip_in": 0,
+        "humidity": 65,
+        "cloud": 75,
+        "feelslike_c": 25,
+        "feelslike_f": 76.9
+    }
+};
 options = {
   host: 'api.apixu.com',
   port: 80,
@@ -138,6 +171,7 @@ function currentWeather(query, callback, options) {
     weather = JSON.parse(weatherOb);
     populate();
   }, errorHandler);
+  //populate();
 }
 
 function userCanContinue() {
@@ -169,6 +203,8 @@ function getLocation() {
         userEntersLocation();
     }
 }
-
+//
 getLocation();
+//userCanContinue();
+
 // -- end

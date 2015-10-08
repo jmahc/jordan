@@ -75,9 +75,14 @@ svg#bigHalfCircle {
 }
 
 //Mobile row issue
-.row {
+.row, .form-group {
     margin-left: 0;
     margin-right: 0;
+}
+
+.form-horizontal .form-group {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .bounce {
@@ -190,7 +195,9 @@ svg#bigHalfCircle {
             display: -ms-flexbox;
             display: -webkit-flex;
             display: flex;
+            -moz-flex-flow: row wrap;
             -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
             justify-content: center;
             line-height:30px;
 

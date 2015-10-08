@@ -32,9 +32,13 @@
       height: 400px;
 
       .sky {
-        z-index: 10;
+        z-index: -1;
+        position: relative;
         width: 100%;
         height: 100%;
+        animation: slide-in-top 3.5s linear;
+        -webkit-animation-iteration-count: 1; /* Chrome, Safari, Opera */
+        animation-iteration-count: 1;
 
         &.day {
           background-color: #0099FF;
@@ -161,6 +165,7 @@
         border-radius: 50%;
       	width: 100px;
       	height: 100px;
+        animation: fade-in 4s linear;
 
         &.sun {
           background-color: #FFFF00;
@@ -177,6 +182,9 @@
         left: 0;
         right: 0;
         background-color: #009933;
+        animation: slide-in-bottom 7s linear;
+        -webkit-animation-iteration-count: 1; /* Chrome, Safari, Opera */
+        animation-iteration-count: 1;
       }
 
       .ground {
@@ -187,6 +195,9 @@
         left: 0;
         right: 0;
         background-color: #996633;
+        animation: slide-in-bottom 7s linear;
+        -webkit-animation-iteration-count: 1; /* Chrome, Safari, Opera */
+        animation-iteration-count: 1;
       }
     }
   }

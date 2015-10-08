@@ -246,17 +246,72 @@
     background: #FFFF99;
   }
 }
-@keyframes cloudFloat {
+@-webkit-keyframes cloudFloat {
   0% {
-    animation-timing-function: ease-in;
-    transform: translate3d(50px, 4px, 0px);
+    left: 0;
   }
   50% {
-    animation-timing-function: ease-out;
-    transform: translate3d(350px, -3px, 0px);
+    left: 58%;
   }
   100% {
-    transform: translate3d(600px, 5px, 0px);
+    left: -20%;
+  }
+}
+/* Animations */
+@keyframes slide-in-left {
+  0% {
+    transform: translate(-100%);
+  }
+  10% {
+    transform: translate(0);
+  }
+  80% {
+    transform: translate(0);
+  }
+  90% {
+    transform: translate(-100%);
+  }
+  100% {
+    transform: translate(-100%);
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    transform: translate(100%);
+  }
+  10% {
+    transform: translate(0);
+  }
+  80% {
+    transform: translate(0);
+  }
+  90% {
+    transform: translate(100%);
+  }
+  100% {
+    transform: translate(100%);
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    bottom: -60px;
+  }
+  50% {
+    bottom: 0;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    top: -100%;
+  }
+  50% {
+    top: -55%;
+  }
+  100% {
+    top: -10%;
   }
 }
 body {
@@ -319,7 +374,12 @@ svg#bigHalfCircle path {
 .mobile-hide {
   display: none;
 }
-.row {
+.row,
+.form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+.form-horizontal .form-group {
   margin-left: 0;
   margin-right: 0;
 }
@@ -417,7 +477,9 @@ svg#bigHalfCircle path {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  -moz-flex-flow: row wrap;
   -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
   justify-content: center;
   line-height: 30px;
 }
