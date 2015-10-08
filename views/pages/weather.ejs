@@ -17,7 +17,7 @@
   <div class="spinner-overlay">
     <i class="fa fa-spinner fa-spin"></i>
   </div>
-  <% include ../partials/nav.ejs %>
+  <% include ../partials/nav_weather.ejs %>
 
   <section id="weather">
     <div class="container centered ts bs">
@@ -271,6 +271,9 @@
 
   <% include ../partials/footer.ejs %>
   <script src="scripts/weather.js">
+  </script>
+  <script>
+    Jmac.geolocate.init();
   </script>
 </body>
 </html>

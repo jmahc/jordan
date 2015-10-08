@@ -190,3 +190,49 @@ Jmac.home.init_methods = function () {
         });
     };
 }
+
+Jmac.geolocate = {};
+
+Jmac.geolocate.init = function () {
+    var t = this;
+
+    t.init_variables();
+    t.init_methods();
+}
+
+Jmac.geolocate.init_variables = function () {
+    var t = this;
+
+    t.$lookupButton = $('#lookup_coordinates');
+    t.$latInput = $('#Latitude');
+    t.$lngInput = $('#Longitude');
+    t.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+    t.$city = $('#City');
+    t.$state = $('#State');
+    t.$postalCode = $('#Zip');
+    t.$form = $('.user-search-weather');
+}
+
+Jmac.geolocate.init_methods = function () {
+    var t = this;
+
+    t.$lookupButton.on('click', function () {
+        var address = t.$city.val() + ", " + " " + t.$postalCode.val();
+        var encoded = encodeURIComponent(address);
+
+        $.getJSON(t.baseUrl + encoded, function (data) {
+            if (data && data.results.length > 0) {
+                var lat = data.results[0].geometry.location.lat;
+                var lng = data.results[0].geometry.location.lng;
+
+                query = lat + "," + lng;
+            } else {
+                alert('Could not determine geo-coordinates for that address.  Please enter them manually.');
+            }
+        }).done(function() {
+          console.log('The query is now' + query)
+          t.$form.hide();
+          getWeather();
+        });
+    });
+}
