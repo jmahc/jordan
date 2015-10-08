@@ -284,6 +284,21 @@ svg#bigHalfCircle path {
   fill: #ececec;
   stroke: rgba(0, 0, 0, 0);
 }
+.spinner-overlay {
+  display: none;
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.4);
+  left: 0;
+  top: 0;
+}
+.spinner-overlay i {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+}
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.25s linear;

@@ -38,6 +38,9 @@ var currentW;
 
 function isDay() {
   var localTime = weather.location.localtime.split(' ')[1];
+  if (localTime.length === 4) {
+    localTime = "0" + localTime;
+  }
 
   if (localTime >= nightTime) {
     $('.light').addClass('moon');
@@ -77,32 +80,31 @@ function cloudAmount() {
 
 function getWeatherWithTime() {
   currentW = weather.current.condition.text;
-  var currentWeatherCode = $.grep(conditions, function(e){
-    return e.code == currentW;
+  var xuCode = $.grep(conditions, function(e){
+    return e.code == weather.current.condition.code;
   });
 
   var code = {};
-  code = currentWeatherCode;
+  code = xuCode[0];
 
   var t = isDay();
   cloudAmount();
   if (t === true) {
     console.log('Yes, it ISDAY')
     day = true;
-    return code[0].day;
+    return code.day;
   } else {
     console.log('NO, it IS NOT DAY')
     day = false;
     tod = "night";
-    return code[0].night;
+    return code.night;
   }
 }
 // -- end
 
 function populate() {
-  $('.weather-location').text(weather.location.name);
-  $('.weather-current').text(weather.current.condition.text);
-  $('.weather-time-of-day').text(tod);
+  $('.weather-location').text('Current weather for ' + weather.location.name);
+  $('.weather-current').text(weather.current.condition.text + ' during the ' + tod);
 
   getWeatherWithTime();
 }
@@ -122,8 +124,9 @@ function httpGetAsync(theUrl, callback, errorHandler)
     xmlHttp.send(null);
 }
 
-function callThis() {
+function getWeather() {
   currentWeather(query, errorHandler, options);
+  $('.animation').show();
 }
 
 function currentWeather(query, callback, options) {
@@ -137,23 +140,84 @@ function currentWeather(query, callback, options) {
   }, errorHandler);
 }
 
+function userCanContinue() {
+  $('#input_go').show().attr('onclick', 'getWeather()');
+}
+
+function userEntersLocation() {
+  $('div.user-search-weather').show();
+}
+
+function userSearchLocation () {
+  var userInput = $('#input_location').val();
+}
 // -- start
 // Get current user location
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-        console.log('Geolocating on the weather.js')
-        console.log('The query is ' + query)
+      $('.spinner-overlay').show();
+      navigator.geolocation.getCurrentPosition(function(position) {
+          query = position.coords.latitude + "," + position.coords.longitude;
+          $('.spinner-overlay').hide();
+          userCanContinue();
+      }, function(error) {
+          $('.spinner-overlay').hide();
+          userEntersLocation();
+      },{timeout:5000});
     } else {
         alert("Geolocation is not supported by this browser.");
-        query = "Nashville";
+        userEntersLocation();
     }
-}
-
-function showPosition(position) {
-  query = position.coords.latitude + "," + position.coords.longitude;
-  query = String(query);
 }
 
 getLocation();
 // -- end
+
+
+Jmac.geolocate = {};
+
+Jmac.geolocate.init = function () {
+    var t = this;
+
+    t.init_variables();
+    t.init_methods();
+}
+
+Jmac.geolocate.init_variables = function () {
+    var t = this;
+
+    t.$lookupButton = $('#lookup_coordinates');
+    t.$latInput = $('#Latitude');
+    t.$lngInput = $('#Longitude');
+    t.baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+    t.$city = $('#City');
+    t.$state = $('#State');
+    t.$postalCode = $('#Zip');
+    t.$form = $('.user-search-weather');
+}
+
+Jmac.geolocate.init_methods = function () {
+    var t = this;
+
+    t.$lookupButton.on('click', function () {
+        var address = t.$city.val() + ", " + " " + t.$postalCode.val();
+        var encoded = encodeURIComponent(address);
+
+        $.getJSON(t.baseUrl + encoded, function (data) {
+            if (data && data.results.length > 0) {
+                var lat = data.results[0].geometry.location.lat;
+                var lng = data.results[0].geometry.location.lng;
+
+                query = lat + "," + lng;
+            } else {
+                alert('Could not determine geo-coordinates for that address.  Please enter them manually.');
+            }
+        }).done(function() {
+          console.log('The query is now' + query)
+          t.$form.hide();
+          getWeather();
+        });
+    });
+}
+
+Jmac.geolocate.init();

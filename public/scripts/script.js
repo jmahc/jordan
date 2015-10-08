@@ -8,7 +8,7 @@ Jmac.home.init = function () {
 
     t.init_variables();
     t.init_methods();
-};
+}
 
 Jmac.home.init_variables = function () {
     var t = this;
@@ -23,7 +23,7 @@ Jmac.home.init_variables = function () {
     t.$modalTitle = $('.modal-title');
     t.$modalImage = $('.modal-image');
     t.$modalLink = $('.modal-link');
-};
+}
 
 Jmac.home.init_methods = function () {
     var t = this;
@@ -189,4 +189,4 @@ Jmac.home.init_methods = function () {
             $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
         });
     };
-};
+}
