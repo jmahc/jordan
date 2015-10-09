@@ -1,0 +1,12 @@
+doctype
+html
+  include header
+  body.home-page(data-spy='scroll', data-target='#navbar')
+    .spinner-overlay
+      i.fa.fa-spinner.fa-spin
+    block nav
+    block content
+    include footer
+    include modal
+    include global_scripts
+    block page_scripts

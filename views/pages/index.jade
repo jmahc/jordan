@@ -1,0 +1,14 @@
+extends ../layout/layout
+block nav
+  include ../layout/nav
+block content
+  include ../partials/home/video
+  include ../partials/home/welcome
+  include ../partials/home/about
+  include ../partials/home/divider
+  include ../partials/home/projects
+block page_scripts
+  script(src='scripts/scrollmagic/ScrollMagic.min.js')
+  script(src='scripts/scrollmagic/plugins/debug.addIndicators.min.js')
+  script.
+    Jmac.home.init();

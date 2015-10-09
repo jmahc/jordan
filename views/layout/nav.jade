@@ -1,0 +1,23 @@
+nav.navbar.navbar-inverse.navbar-fixed-top(data-spy='affix', data-offset-top='0')
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand Jordan McArdle
+    #navbar.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li.active
+          a(href='#home')
+            | Home
+        li
+          a(href='#about')
+            | About
+        li
+          a(href='#projects')
+            | Projects
+        li
+          a(href='/Weather')
+            | Weather App

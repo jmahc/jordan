@@ -1,0 +1,11 @@
+section#video
+  .homepage-hero-module
+    .video-container
+      .filter.no-stretch
+      video.video-js(autoplay='', loop='')
+        source(src='videos/nashville480.mp4', type='video/mp4')
+        | Your browser does not support the video tag. I suggest you upgrade your browser.
+        source(src='videos/nashville480.webm', type='video/webm')
+        | Your browser does not support the video tag. I suggest you upgrade your browser.
+      .poster
+        img.no-stretch(src='images/location.jpg', alt='')

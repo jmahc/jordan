@@ -1,8 +1,8 @@
 {
-  "name": "Node.js Getting Started",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"],
-  "image": "heroku/nodejs"
+  "name": "Jordan McArdle's Portfolio Site",
+  "description": "A porfolio site and random applications showcasing an understanding of full-stack web development.",
+  "repository": "https://github.com/jmahc/jordanmcardle.me",
+  "logo": "",
+  "keywords": ["mcardle", "jordan mcardle", "node", "express", "static", "portfolio", "weather"],
+  "image": ""
 }
