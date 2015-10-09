@@ -1,6 +1,120 @@
 var Jmac = {}; //SiteName can be an abbreviation (e.g. SN for SiteName)
 Jmac.development = false;
 Jmac.debug = false;
+
+Jmac.global = {}
+
+Jmac.global.init = function() {
+  var t = this;
+
+  t.init_variables();
+  t.init_methods();
+}
+Jmac.global.init_variables = function() {
+  var t = this;
+}
+Jmac.global.init_methods = function() {
+  var t = this;
+
+  // Standards:
+  $(function() {
+    var hidden = "hidden";
+    var oldTitle = document.title;
+    var currentTitle;
+
+    if (hidden in document)
+        document.addEventListener("visibilitychange", onchange);
+    else if ((hidden = "mozHidden") in document)
+        document.addEventListener("mozvisibilitychange", onchange);
+    else if ((hidden = "webkitHidden") in document)
+        document.addEventListener("webkitvisibilitychange", onchange);
+    else if ((hidden = "msHidden") in document)
+        document.addEventListener("msvisibilitychange", onchange);
+    // IE 9 and lower:
+    else if ("onfocusin" in document)
+        document.onfocusin = document.onfocusout = onchange;
+    // All others:
+    else
+        window.onpageshow = window.onpagehide
+            = window.onfocus = window.onblur = onchange;
+
+    function onchange (evt) {
+        var v = "visible", h = "hidden",
+            evtMap = {
+                focus:v, focusin:v, pageshow:v, blur:h, focusout:h, pagehide:h
+            };
+
+        evt = evt || window.event;
+        if (evt.type in evtMap) {
+            currentTitle = oldTitle;
+            $(document).attr('title', currentTitle);
+        }
+        else {
+            currentTitle = this[hidden] ? "Come back!" : oldTitle;
+            $(document).attr('title', currentTitle);
+        }
+      }
+      // set the initial state (but only if browser supports the Page Visibility API)
+      if( document[hidden] !== undefined ) {
+          onchange({type: document[hidden] ? "blur" : "focus"});
+      }
+  })();
+}
+
+Jmac.nav = {};
+
+Jmac.nav.init = function () {
+  var t = this;
+
+  t.init_variables();
+  t.init_methods();
+}
+
+Jmac.nav.init_variables = function() {
+  var t = this;
+
+  t.$arrow = $('.arrow.bounce');
+  t.$page = $('body');
+  t.$nav = $('nav');
+}
+
+Jmac.nav.init_methods = function () {
+  var t = this;
+
+  //enables navbar affix-top
+  t.$nav.affix();
+
+  //navbar affix closes arrow
+  t.$nav.on('affixed.bs.affix', function () {
+      t.$arrow.fadeOut(200);
+  });
+  t.$nav.on('affixed-top.bs.affix', function () {
+      t.$arrow.fadeIn(200);
+  });
+  //Remove arrow bounce
+  if(t.$nav.hasClass('affix'))
+  {
+      t.$arrow.fadeOut(200);
+  }
+
+  //enables scrollspy for navbar
+  t.$page.scrollspy({target: '#navbar'});
+
+  //smooth scrolling
+  $('a[href*=#]:not([href=#])').click(function () {
+    if(location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if(target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+}
+
 Jmac.home = {};
 
 Jmac.home.init = function () {
@@ -23,21 +137,18 @@ Jmac.home.init_variables = function () {
     t.$modalTitle = $('.modal-title');
     t.$modalImage = $('.modal-image');
     t.$modalLink = $('.modal-link');
+    t.$projects = $('#projects');
+    t.scrollDuration = t.$projects.height();
+    t.controller = new ScrollMagic.Controller({globalSceneOptions: {duration: t.scrollDuration}});
 }
 
 Jmac.home.init_methods = function () {
     var t = this;
 
-    //enables navbar affix-top
-    t.$nav.affix();
-
-    //navbar affix closes arrow
-    t.$nav.on('affixed.bs.affix', function () {
-        t.$arrow.fadeOut(200);
-    });
-    t.$nav.on('affixed-top.bs.affix', function () {
-        t.$arrow.fadeIn(200);
-    });
+    	// build scenes
+    	new ScrollMagic.Scene({triggerElement: "#bigHalfCircle"})
+    					.setClassToggle(".portfolio-item", "fade-in") // add class toggle
+    					.addTo(t.controller);
 
     $(function () {
       //close navbar menu on click mobile
@@ -73,22 +184,6 @@ Jmac.home.init_methods = function () {
       {
           t.$arrow.fadeOut(200);
       }
-      //enables scrollspy for navbar
-      t.$page.scrollspy({target: '#navbar'});
-
-      //smooth scrolling
-      $('a[href*=#]:not([href=#])').click(function () {
-        if(location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if(target.length) {
-            $('html,body').animate({
-              scrollTop: target.offset().top
-            }, 1000);
-            return false;
-          }
-        }
-      });
 
       //video scaling
       scaleVideoContainer();
@@ -189,6 +284,8 @@ Jmac.home.init_methods = function () {
             $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
         });
     };
+
+    Jmac.nav.init();
 }
 
 Jmac.geolocate = {};
