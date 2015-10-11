@@ -43,6 +43,7 @@ function cloudAmount() {
   var c = currentW.toLowerCase();
   if ((c.indexOf("overcast") > -1)) {
     $('.clouds').addClass('cloudy');
+    $('.sky').addClass('overcast');
     for (var i = 1; i < 8; i++) {
       $('.clouds').append("<div class='cloud'></div>");
     }
@@ -142,10 +143,8 @@ function postTest() {
     success: function(data) {
         console.log('success');
         console.log('The data is' + data);
-        var obj = JSON.parse(data);
-        console.log('OBJ is ' + data)
         weather = data;
-        populate();
+        getWeather();
     }
   });
 }

@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 
 var app = express();
 
-var jsonParser = bodyParser.json()
+var jsonParser = bodyParser.json();
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -40,8 +40,7 @@ app.get('/weather', function(request, response) {
 
 app.post('/getweather', jsonParser, function(req, res){
   weather.currentWeather(req.body.location, function(weather) {
-    JSON.parse(weather);
-		res.send( { weather } );
+		res.json( JSON.parse(weather) );
     console.log('The weather outside is ' + weather)
 	}, function(err) {
 		console.log('ERROR')
@@ -49,9 +48,6 @@ app.post('/getweather', jsonParser, function(req, res){
 
 	//res.send(req.body);
 });
-
-
-app.listen(3000);
 
 app.listen(app.get('port'), function() {
   console.log('The party is happening on port ', app.get('port'));

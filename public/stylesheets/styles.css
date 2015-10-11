@@ -365,6 +365,7 @@ svg#bigHalfCircle path {
   stroke: rgba(0, 0, 0, 0);
 }
 .spinner-overlay {
+  font-size: 40px;
   display: none;
   width: 100%;
   position: fixed;
@@ -516,6 +517,7 @@ svg#bigHalfCircle path {
 }
 .home-page .footer {
   background: repeating-linear-gradient(45deg, #111111, #111111 50px, #222222 50px, #222222 100px);
+  z-index: 1030;
 }
 .home-page .footer ul {
   list-style: none;
