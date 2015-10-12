@@ -1,6 +1,41 @@
 // ***** FOR SURE
-var query;
-var weather;
+var query
+    , weather;
+// var weather = {
+//     "location": {
+//         "name": "Birmingham",
+//         "region": "Alabama",
+//         "country": "United States Of America",
+//         "lat": 33.52,
+//         "lon": -86.8,
+//         "tz_id": "America/Chicago",
+//         "localtime_epoch": 1444644104,
+//         "localtime": "2015-10-12 10:01"
+//     },
+//     "current": {
+//         "last_updated_epoch": 1444642202,
+//         "last_updated": "2015-10-12 09:30",
+//         "temp_c": 17.8,
+//         "temp_f": 64.0,
+//         "condition": {
+//             "text": "Partly Cloudy",
+//             "icon": "//cdn.apixu.com/weather/64x64/day/116.png",
+//             "code": 1003
+//         },
+//         "wind_mph": 0.0,
+//         "wind_kph": 0.0,
+//         "wind_degree": 0,
+//         "wind_dir": "N",
+//         "pressure_mb": 1015.0,
+//         "pressure_in": 30.4,
+//         "precip_mm": 0.0,
+//         "precip_in": 0.0,
+//         "humidity": 73,
+//         "cloud": 25,
+//         "feelslike_c": 17.8,
+//         "feelslike_f": 64.0
+//     }
+// };
 // -- start
 //current time
 Date.prototype.timeNow = function () {
@@ -118,10 +153,10 @@ function getLocation() {
       $('.spinner-overlay').show();
       navigator.geolocation.getCurrentPosition(function(position) {
           query = position.coords.latitude + "," + position.coords.longitude;
-          $('.spinner-overlay').hide();
+          $('.loading-overlay').hide();
           userCanContinue();
       }, function(error) {
-          $('.spinner-overlay').hide();
+          $('.loading-overlay').hide();
           userEntersLocation();
       },{timeout:5000});
     } else {
@@ -149,7 +184,6 @@ function postTest() {
   });
 }
 //
-getLocation();
 //userCanContinue();
-
+getLocation();
 // -- end

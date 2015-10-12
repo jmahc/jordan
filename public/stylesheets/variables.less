@@ -7,21 +7,35 @@
 @mobile: ~"screen and (min-width:320px) and (max-width:767px)";
 @desktop: ~"screen and (min-width: 768px)";
 
-@bwRed: #e22016;
-@hsGreen: #3d822e;
-@rkaRed: #ee3124;
-@vfBlue: #005bab;
-@ytRed: #dc1e37;
+@bwRed:     #e22016;
+@hsGreen:   #3d822e;
+@rkaRed:    #ee3124;
+@vfBlue:    #005bab;
+@ytRed:     #dc1e37;
 @colOrange: #e87722;
 @cubYellow: #ffc82f;
-@comGreen: #77bd1e;
+@comGreen:  #77bd1e;
+@teal:      #1cffe4;
+@purple:    #ff1c37;
 
-@twitter: rgba(0, 172, 237, 1);
-@facebook: rgba(59, 89, 152, 1);
-@google: rgba(221, 75, 57, 1);
-@linkedin: rgba(81, 127, 164, 1);
-@other: #4c4c4c;
+@twitter:   rgba(0, 172, 237, 1);
+@facebook:  rgba(59, 89, 152, 1);
+@google:    rgba(221, 75, 57, 1);
+@linkedin:  rgba(81, 127, 164, 1);
+@other:     #4c4c4c;
 
+//Mix-ins
+.size(@thesize) {
+	width: @thesize;
+	height: @thesize;
+}
+
+.size(@width, @height) {
+	width: @width;
+	height: @height;
+}
+
+//Animations
 @keyframes bounceIn {
   0% {
     transform: scale(0.1);
@@ -307,3 +321,35 @@ to {opacity: 0;}
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+@keyframes loading-in {
+  50% {
+    background: @teal;
+    transform: translateY(10px);
+  }
+}
+
+.shaft-load {
+  margin: 50px auto;
+
+  .size(60px, 30px);
+
+  > div {
+    float: left;
+    background: @purple;
+    height: 100%;
+    width: 5px;
+    margin-right: 1px;
+    display: inline-block;
+  }
+  .shaft1 { animation-delay: (0.05s); }
+  .shaft2 { animation-delay: (0.1s); }
+  .shaft3 { animation-delay: (0.15s); }
+  .shaft4 { animation-delay: (0.2s); }
+  .shaft5 { animation-delay: (0.25s); }
+  .shaft6 { animation-delay: (0.3s); }
+  .shaft7 { animation-delay: (0.35s); }
+  .shaft8 { animation-delay: (0.4s); }
+  .shaft9 { animation-delay: (0.45s); }
+  .shaft10 { animation-delay: (0.5s); }
+}

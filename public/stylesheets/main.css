@@ -344,6 +344,55 @@
     opacity: 1;
   }
 }
+@keyframes loading-in {
+  50% {
+    background: #1cffe4;
+    transform: translateY(10px);
+  }
+}
+.shaft-load {
+  margin: 50px auto;
+  width: 60px;
+  height: 30px;
+}
+.shaft-load > div {
+  float: left;
+  background: #ff1c37;
+  height: 100%;
+  width: 5px;
+  margin-right: 1px;
+  display: inline-block;
+}
+.shaft-load .shaft1 {
+  animation-delay: 0.05s;
+}
+.shaft-load .shaft2 {
+  animation-delay: 0.1s;
+}
+.shaft-load .shaft3 {
+  animation-delay: 0.15s;
+}
+.shaft-load .shaft4 {
+  animation-delay: 0.2s;
+}
+.shaft-load .shaft5 {
+  animation-delay: 0.25s;
+}
+.shaft-load .shaft6 {
+  animation-delay: 0.3s;
+}
+.shaft-load .shaft7 {
+  animation-delay: 0.35s;
+}
+.shaft-load .shaft8 {
+  animation-delay: 0.4s;
+}
+.shaft-load .shaft9 {
+  animation-delay: 0.45s;
+}
+.shaft-load .shaft10 {
+  animation-delay: 0.5s;
+}
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -7130,21 +7179,28 @@ svg#bigHalfCircle path {
   fill: #ececec;
   stroke: rgba(0, 0, 0, 0);
 }
-.spinner-overlay {
-  font-size: 40px;
+.loading-overlay {
   display: none;
   width: 100%;
   position: fixed;
   height: 100%;
-  z-index: 999;
+  z-index: 99999;
   background: rgba(255, 255, 255, 0.4);
   left: 0;
   top: 0;
 }
-.spinner-overlay i {
+.shaft-load {
   position: absolute;
   top: 40%;
-  left: 50%;
+  left: 48%;
+}
+.shaft-load > div {
+  height: 2px;
+  animation: loading-in 1s infinite ease-in-out;
+  transform: translateY(-10px);
+}
+.shaft7 {
+  animation-delay: 0.7s;
 }
 .fade {
   opacity: 0;

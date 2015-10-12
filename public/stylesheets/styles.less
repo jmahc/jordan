@@ -28,25 +28,32 @@ svg#bigHalfCircle {
     stroke: rgba(0,0,0,0);
   }
 }
+.loading-overlay {
+  display: none;
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  z-index: 99999;
+  background: rgba(255, 255, 255, 0.4);
+  left: 0;
+  top: 0;
 
-.spinner-overlay {
-    font-size: 40px;
-    display: none;
-    width: 100%;
-    position: fixed;
-    height: 100%;
-    z-index: 999;
-    background: rgba(255, 255, 255, 0.4);
-    left: 0;
-    top: 0;
 
-    i {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-    }
 }
-
+.shaft-load {
+  position: absolute;
+  top: 40%;
+  left: 48%;
+  > div {
+    height: 2px;
+    animation: loading-in 1s infinite ease-in-out;
+    transform: translateY(-10px);
+  }
+}
+.shaft7 {
+  animation-delay: (0.7s);
+  //square(60px);
+}
 .fade {
    opacity: 0;
    -webkit-transition: opacity 0.25s linear;
