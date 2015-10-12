@@ -1,6 +1,6 @@
-var weather = require('./lib/weatherlib.js');
-var express = require('express');
-var bodyParser = require('body-parser')
+var weather = require('./lib/weatherlib.js')
+    , express = require('express')
+    , bodyParser = require('body-parser');
 
 var app = express();
 
