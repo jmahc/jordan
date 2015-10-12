@@ -150,7 +150,7 @@ function userSearchLocation () {
 // Get current user location
 function getLocation() {
     if (navigator.geolocation) {
-      $('.spinner-overlay').show();
+      $('.loading-overlay').show();
       navigator.geolocation.getCurrentPosition(function(position) {
           query = position.coords.latitude + "," + position.coords.longitude;
           $('.loading-overlay').hide();
