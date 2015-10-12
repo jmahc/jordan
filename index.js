@@ -9,7 +9,9 @@ var jsonParser = bodyParser.json();
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
-
+app.use(express.json());
+app.use(express.urlencoded());
+bodyParser() = json() + urlencoded();
 // views is directory for all template files
 app.set('views', __dirname + '/views');
 
