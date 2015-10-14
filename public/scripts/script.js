@@ -149,11 +149,9 @@ Jmac.home.init_methods = function () {
     	// build scenes
     	new ScrollMagic.Scene({triggerElement: "#bigHalfCircle"})
     					.setClassToggle(".portfolio-item", "fade-in") // add class toggle
-              .addIndicators()
     					.addTo(t.controllerProjects);
       new ScrollMagic.Scene({triggerElement: ".welcome"})
     					.setClassToggle(".navbar.navbar-inverse", "scroll-mag") // add class toggle
-              .addIndicators({name: "1 (duration: 100)"})
     					.addTo(t.controllerVideo);
 
     $(function () {
