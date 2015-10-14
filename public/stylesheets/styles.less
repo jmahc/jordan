@@ -156,6 +156,7 @@ svg#bigHalfCircle {
 
                 &.welcome-hello {
                     animation: bounceIn 1s;
+                    font-size: 2em;
                 }
 
                 &.welcome-from {
@@ -163,7 +164,7 @@ svg#bigHalfCircle {
                 animation: bounceIn 1s ease-in-out 1.45s forwards;
 
                     .fa-heart {
-                    color: hotpink;
+                    color: @color1;
                     animation: heartBeat 1s ease-in-out 2.5s infinite;
                     }
                 }
@@ -225,16 +226,35 @@ svg#bigHalfCircle {
         ul {
             list-style: none;
             padding-top: 10px;
+            padding-left: 0;
 
             li {
                 display: inline-block;
+                font-size: 1.2em;
+                margin: 0 8px;
             }
         }
 
         a {
             color: #FFF;
+            &.github, &.steam {
+                color: white;
+            }
+            &.linkedin {
+                color: @linkedin;
+            }
+            &.facebook {
+                color: @facebook;
+            }
+            &.twitter {
+                color: @twitter;
+            }
+            &.google {
+                color: @google;
+            }
         }
     }
+
 
     //coverr
     .no-video .video-container video,
@@ -303,14 +323,6 @@ svg#bigHalfCircle {
 
 @media @sm {
   @import 'responsive/640down.less';
-}
-
-@media @xs {
-  @import 'responsive/480down.less';
-}
-
-@media @mobile {
-  @import 'responsive/mobile.less';
 }
 
 @media @desktop {

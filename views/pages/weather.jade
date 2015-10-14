@@ -29,9 +29,8 @@ block content
           .col-sm-offset-2.col-sm-8
             button#lookup_coordinates.btn.btn-success Go!
       .row.centered
-        button#input_go.btn.btn-success(style='display: none;') Check the weather!
+        button#input_go.btn.btn-primary(style='display: none;') Check the weather!
 
 block page_scripts
-  script(src='scripts/weather.js')
   script.
-    Jmac.geolocate.init();
+    Jmac.weather.init();
