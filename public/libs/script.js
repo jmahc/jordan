@@ -173,14 +173,14 @@ Jmac.home.init_methods = function () {
       // Usage:
 
       preload([
-          'images/web/2-com.png',
-          'images/web/bulwark.png',
-          'images/web/columbia.png',
-          'images/web/cub.png',
-          'images/web/horace.png',
-          'images/web/red.png',
-          'images/web/vf.png',
-          'images/web/yanmar.png',
+          'img/web/2-com.png',
+          'img/web/bulwark.png',
+          'img/web/columbia.png',
+          'img/web/cub.png',
+          'img/web/horace.png',
+          'img/web/red.png',
+          'img/web/vf.png',
+          'img/web/yanmar.png',
       ]);
 
       //Remove arrow bounce
@@ -218,7 +218,7 @@ Jmac.home.init_methods = function () {
         var l = $elements.find('h4').data("link");
         var x = t.split(' ');
         var site = x[0];
-        var i = 'images/web/' + site.toLowerCase() + '.png';
+        var i = 'img/web/' + site.toLowerCase() + '.png';
 
         info.title = t;
         info.link = l;
