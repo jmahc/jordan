@@ -7529,7 +7529,8 @@ svg#bigHalfCircle path {
     margin-bottom: 0 !important;
   }
   .home-page nav.affix-top,
-  .home-page nav.affix {
+  .home-page nav.affix,
+  .home-page nav.navbar {
     height: 100px;
     background-color: #456990;
     border-color: #456990;
@@ -7537,30 +7538,35 @@ svg#bigHalfCircle path {
     -webkit-animation: affixFadeIn 0.95s;
   }
   .home-page nav.affix-top .container,
-  .home-page nav.affix .container {
+  .home-page nav.affix .container,
+  .home-page nav.navbar .container {
     height: 100%;
   }
   .home-page nav.affix-top a,
-  .home-page nav.affix a {
+  .home-page nav.affix a,
+  .home-page nav.navbar a {
     line-height: 65px;
     color: #000;
     text-transform: uppercase;
   }
   .home-page nav.affix-top a:hover,
-  .home-page nav.affix a:hover {
+  .home-page nav.affix a:hover,
+  .home-page nav.navbar a:hover {
     color: #808080;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-user-select: none;
     -webkit-touch-callout: none;
   }
   .home-page nav.affix-top .navbar-brand,
-  .home-page nav.affix .navbar-brand {
+  .home-page nav.affix .navbar-brand,
+  .home-page nav.navbar .navbar-brand {
     font-size: 30px;
     color: white;
     cursor: default;
   }
   .home-page nav.affix-top .navbar-brand:hover,
-  .home-page nav.affix .navbar-brand:hover {
+  .home-page nav.affix .navbar-brand:hover,
+  .home-page nav.navbar .navbar-brand:hover {
     color: #87bba2;
     cursor: default;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -7568,24 +7574,29 @@ svg#bigHalfCircle path {
     -webkit-touch-callout: none;
   }
   .home-page nav.affix-top #navbar .nav.navbar-nav,
-  .home-page nav.affix #navbar .nav.navbar-nav {
+  .home-page nav.affix #navbar .nav.navbar-nav,
+  .home-page nav.navbar #navbar .nav.navbar-nav {
     float: right;
   }
   .home-page nav.affix-top #navbar .nav.navbar-nav a,
-  .home-page nav.affix #navbar .nav.navbar-nav a {
+  .home-page nav.affix #navbar .nav.navbar-nav a,
+  .home-page nav.navbar #navbar .nav.navbar-nav a {
     color: white;
   }
   .home-page nav.affix-top #navbar .nav.navbar-nav a:hover,
-  .home-page nav.affix #navbar .nav.navbar-nav a:hover {
+  .home-page nav.affix #navbar .nav.navbar-nav a:hover,
+  .home-page nav.navbar #navbar .nav.navbar-nav a:hover {
     color: #87bba2;
   }
   .home-page nav.affix-top #navbar .nav.navbar-nav .active a,
-  .home-page nav.affix #navbar .nav.navbar-nav .active a {
+  .home-page nav.affix #navbar .nav.navbar-nav .active a,
+  .home-page nav.navbar #navbar .nav.navbar-nav .active a {
     color: #f45b69;
     background-color: #456990;
   }
   .home-page nav.affix-top.scroll-mag,
-  .home-page nav.affix.scroll-mag {
+  .home-page nav.affix.scroll-mag,
+  .home-page nav.navbar.scroll-mag {
     background-image: none;
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);
@@ -7595,7 +7606,8 @@ svg#bigHalfCircle path {
     -webkit-animation: affixFadeOut 1.25s;
   }
   .home-page nav.affix-top.scroll-mag #navbar .nav.navbar-nav .active a,
-  .home-page nav.affix.scroll-mag #navbar .nav.navbar-nav .active a {
+  .home-page nav.affix.scroll-mag #navbar .nav.navbar-nav .active a,
+  .home-page nav.navbar.scroll-mag #navbar .nav.navbar-nav .active a {
     color: #f45b69;
     background-color: rgba(0, 0, 0, 0);
   }
