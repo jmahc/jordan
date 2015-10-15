@@ -6,41 +6,37 @@
 @xxl: ~"screen and (min-width: 1200px)";
 @mobile: ~"screen and (min-width:320px) and (max-width:767px)";
 @desktop: ~"screen and (min-width: 768px)";
-
-@bwRed:     #e22016;
-@hsGreen:   #3d822e;
-@rkaRed:    #ee3124;
-@vfBlue:    #005bab;
-@ytRed:     #dc1e37;
+@bwRed: #e22016;
+@hsGreen: #3d822e;
+@rkaRed: #ee3124;
+@vfBlue: #005bab;
+@ytRed: #dc1e37;
 @colOrange: #e87722;
 @cubYellow: #ffc82f;
-@comGreen:  #77bd1e;
-@teal:      #1cffe4;
-@purple:    #ff1c37;
+@comGreen: #77bd1e;
+@teal: #1cffe4;
+@purple: #ff1c37;
 
 /* Coolors Exported Palette - coolors.co/f45b69-456990-e4fde1-c9e4ca-87bba2 */
-
 @color1: #f45b69; //rgba(244, 91, 105, 100)
 @color2: #456990; //rgba(69, 105, 144, 100)
 @color3: #e4fde1; //rgba(228, 253, 225, 100)
 @color4: #c9e4ca; //rgba(201, 228, 202, 100)
 @color5: #87bba2; //rgba(135, 187, 162, 100)
-
-@twitter:   rgba(0, 172, 237, 1);
-@facebook:  rgba(59, 89, 152, 1);
-@google:    rgba(221, 75, 57, 1);
-@linkedin:  rgba(81, 127, 164, 1);
-@other:     #4c4c4c;
+@twitter: rgba(0, 172, 237, 1);
+@facebook: rgba(59, 89, 152, 1);
+@google: rgba(221, 75, 57, 1);
+@linkedin: rgba(81, 127, 164, 1);
+@other: #4c4c4c;
 
 //Mix-ins
 .size(@thesize) {
-	width: @thesize;
-	height: @thesize;
+  width: @thesize;
+  height: @thesize;
 }
-
 .size(@width, @height) {
-	width: @width;
-	height: @height;
+  width: @width;
+  height: @height;
 }
 
 //Animations
@@ -58,7 +54,6 @@
     opacity: 1;
   }
 }
-
 @keyframes heartBeat {
   0% {
     transform: scale(0.33);
@@ -76,167 +71,226 @@
     transform: scale(0.33);
   }
 }
-
-@keyframes affixFadeIn
-{
-from {opacity: 0;}
-to {opacity: 1;}
+@keyframes affixFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
-@-webkit-keyframes affixFadeIn
-{
-from {opacity: 1;}
-to {opacity: 0;}
+@-webkit-keyframes affixFadeIn {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
-
-@keyframes affixFadeOut
-{
-from {opacity: 0;}
-to {opacity: 1;}
+@keyframes affixFadeOut {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
-@-webkit-keyframes affixFadeOut
-{
-from {opacity: 1;}
-to {opacity: 0;}
+@-webkit-keyframes affixFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
-
 @keyframes bounce {
-	0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: (translateY(0));
   }
-	40% {
+  40% {
     transform: (translateY(-30px));
   }
-	60% {
+  60% {
     transform: (translateY(-15px));
   }
 }
-
 @keyframes flipInX {
-    from {
-      transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-      animation-timing-function: ease-in;
-      opacity: 0;
-    }
-
-    40% {
-      transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-      animation-timing-function: ease-in;
-    }
-
-    60% {
-      transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-      opacity: 1;
-    }
-
-    80% {
-      transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-    }
-
-    to {
-      transform: perspective(400px);
-    }
+  from {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+  to {
+    transform: perspective(400px);
+  }
 }
-
 .flipInX {
-    backface-visibility: visible !important;
-    animation-name: flipInX;
+  backface-visibility: visible !important;
+  animation-name: flipInX;
 }
-
 @keyframes flipOutX {
   from {
     transform: perspective(400px);
   }
-
   30% {
     transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     opacity: 1;
   }
-
   to {
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     opacity: 0;
   }
 }
-
 .flipOutX {
   animation-name: flipOutX;
   backface-visibility: visible !important;
 }
-
-
 @keyframes flipInY {
   from {
     transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
     animation-timing-function: ease-in;
     opacity: 0;
   }
-
   40% {
     transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     animation-timing-function: ease-in;
   }
-
   60% {
     transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     opacity: 1;
   }
-
   80% {
     transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
   }
-
   to {
     transform: perspective(400px);
   }
 }
-
 .flipInY {
   backface-visibility: visible !important;
   animation-name: flipInY;
 }
-
 @keyframes slideInDown {
   from {
     transform: translate3d(0, -100%, 0);
     visibility: visible;
   }
-
   to {
     transform: translate3d(0, 0, 0);
   }
 }
-
 .slideInDown {
   animation-name: slideInDown;
 }
 
-
 //Weather page
 @keyframes wave {
-  0%   { height: 2%; left:-2%; background: #FFFF00; }
-  5%   { background: #CCCC00; }
-  10%  { height:10%; margin-top: -5%; background: #FFFF33; }
-  15%  { background: #E6E600; }
-  20%  { height:20%; margin-top:-17%; background: #FFFF99; }
-  25%  { background: #FFFF4D; }
-  30%  { height:10%; margin-top: -5%; background: #FFFFB2; }
-  35%  { background: #FFFF19; }
-  40%  { height:20%; left: 20%; margin-top:-17%; background: #FFFF00; }
-  45%  { background: #CCCC00; }
-  50%  { height:10%; margin-top: -5%; background: #FFFF33; }
-  55%  { background: #E6E600; }
-  60%  { height:20%; left: 40%; margin-top:-17%; background: #FFFF99; }
-  65%  { background: #FFFF4D; }
-  70%  { height:10%; margin-top: -5%; background: #FFFFB2; }
-  75%  { background: #FFFF19; }
-  80%  { height:20%; left: 60%; margin-top:-17%; background: #FFFF00; }
-  85%  { background: #CCCC00; }
-  90%  { height:10%; margin-top: -5%; background: #FFFF33; }
-  95%  { background: #E6E600; }
-  100% { height:20%; margin-top:-17%; left:100%; background: #FFFF99; }
+  0% {
+    height: 2%;
+    left: -2%;
+    background: #ff0;
+  }
+  5% {
+    background: #cc0;
+  }
+  10% {
+    height: 10%;
+    margin-top: -5%;
+    background: #ff3;
+  }
+  15% {
+    background: #e6e600;
+  }
+  20% {
+    height: 20%;
+    margin-top: -17%;
+    background: #ff9;
+  }
+  25% {
+    background: #ffff4d;
+  }
+  30% {
+    height: 10%;
+    margin-top: -5%;
+    background: #ffffb2;
+  }
+  35% {
+    background: #ffff19;
+  }
+  40% {
+    height: 20%;
+    left: 20%;
+    margin-top: -17%;
+    background: #ff0;
+  }
+  45% {
+    background: #cc0;
+  }
+  50% {
+    height: 10%;
+    margin-top: -5%;
+    background: #ff3;
+  }
+  55% {
+    background: #e6e600;
+  }
+  60% {
+    height: 20%;
+    left: 40%;
+    margin-top: -17%;
+    background: #ff9;
+  }
+  65% {
+    background: #ffff4d;
+  }
+  70% {
+    height: 10%;
+    margin-top: -5%;
+    background: #ffffb2;
+  }
+  75% {
+    background: #ffff19;
+  }
+  80% {
+    height: 20%;
+    left: 60%;
+    margin-top: -17%;
+    background: #ff0;
+  }
+  85% {
+    background: #cc0;
+  }
+  90% {
+    height: 10%;
+    margin-top: -5%;
+    background: #ff3;
+  }
+  95% {
+    background: #e6e600;
+  }
+  100% {
+    height: 20%;
+    margin-top: -17%;
+    left: 100%;
+    background: #ff9;
+  }
 }
+
 //
 // @keyframes cloudFloat {
 //   0% {
@@ -251,19 +305,17 @@ to {opacity: 0;}
 //     transform: translate3d(600px, 5px, 0px);
 //   }
 // }
-
 @-webkit-keyframes cloudFloat {
   0% {
-    left:0;
+    left: 0;
   }
   50% {
-    left:58%;
+    left: 58%;
   }
   100% {
     left: -20%;
   }
 }
-
 
 /* Animations */
 @keyframes slide-in-left {
@@ -271,7 +323,7 @@ to {opacity: 0;}
     transform: translate(-100%);
   }
   10% {
-     transform: translate(0);
+    transform: translate(0);
   }
   80% {
     transform: translate(0);
@@ -288,10 +340,10 @@ to {opacity: 0;}
     transform: translate(100%);
   }
   10% {
-     transform: translate(0);
+    transform: translate(0);
   }
   80% {
-     transform: translate(0);
+    transform: translate(0);
   }
   90% {
     transform: translate(100%);
@@ -316,20 +368,38 @@ to {opacity: 0;}
     top: -100%;
   }
   50% {
-     top: -55%;
+    top: -55%;
   }
   100% {
     top: -10%;
   }
 }
 
-
-
 /* make keyframes that tell the start state and the end state of our object */
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 @keyframes loading-in {
   50% {
     background: @teal;
