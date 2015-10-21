@@ -1,3 +1,4 @@
+'use strict';
 var gulp            = require('gulp')
   , http            = require('http')
   , nodemon         = require('gulp-nodemon')
@@ -9,7 +10,7 @@ var gulp            = require('gulp')
   , uglify          = require('gulp-uglify')
   , concat          = require('gulp-concat')
   , rename          = require('gulp-rename')
-  , livereload     = require('gulp-livereload')
+  , browserSync     = require('browser-sync')
   , input           = {
                       'mainLess'    : './source/css/main.less',
                       'otherLess'   : './source/css/**/*.less',
@@ -24,15 +25,45 @@ var gulp            = require('gulp')
                       'js'  : './public/assets/js'
     };
 
-gulp.task('default', ['watch', 'less', 'plugins-js', 'site-js', 'html', 'start']);
+// gulp.task('default', ['watch', 'less', 'plugins-js', 'site-js', 'html', 'start']);
 
-gulp.task('start', function () {
-  nodemon({
-    script: 'app.js'
+gulp.task('default', ['browser-sync', 'watch', 'less', 'plugins-js', 'site-js', 'html'], function () {
+});
+
+gulp.task('browser-sync', ['start'], function() {
+	browserSync.init(null, {
+		proxy: "http://localhost:5000",
+        files: [output.js, output.css, input.html],
+        browser: "google chrome",
+        port: 5001,
+	});
+});
+
+gulp.task('start', function (cb) {
+
+	var started = false;
+
+	return nodemon({
+		script: 'app.js'
   , ext: 'js html'
   , env: { 'NODE_ENV': 'development' }
-  })
+	}).on('start', function () {
+		// to avoid nodemon being started multiple times
+		// thanks @matthisk
+		if (!started) {
+			cb();
+			started = true;
+		}
+	});
 });
+
+// gulp.task('start', function () {
+//   nodemon({
+//     script: 'app.js'
+//   , ext: 'js html'
+//   , env: { 'NODE_ENV': 'development' }
+//   })
+// });
 
 function onError(err) {
     console.log(err);
@@ -45,7 +76,6 @@ gulp.task('less', function(){
         .pipe(minifyCSS())
         .pipe(rename('site.min.css'))
         .pipe(gulp.dest(output.css))
-        .pipe(livereload())
         .pipe(plumber({
             errorHandler: onError
         }));
@@ -58,7 +88,6 @@ gulp.task('plugins-js', function() {
     .pipe(rename('plugins.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(output.js))
-    .pipe(livereload())
     .pipe(plumber({
         errorHandler: onError
     }));
@@ -70,7 +99,6 @@ gulp.task('site-js', function() {
     .pipe(rename('site.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(output.js))
-    .pipe(livereload())
     .pipe(plumber({
         errorHandler: onError
     }));
@@ -78,7 +106,6 @@ gulp.task('site-js', function() {
 
 gulp.task('html', function() {
   return gulp.src(input.html)
-    .pipe(livereload())
     .pipe(plumber({
         errorHandler: onError
     }));
@@ -86,15 +113,15 @@ gulp.task('html', function() {
 
 gulp.task('other-css', function() {
   return gulp.src(input.otherLess)
-    .pipe(livereload())
+    //.pipe(livereload())
     .pipe(plumber({
         errorHandler: onError
     }));
 });
 
 //In conjunction with livereload chrome extension
-gulp.task('watch', function() {
-  livereload.listen();
+gulp.task('watch', ['browser-sync'], function() {
+  //livereload.listen();
   gulp.watch(input.otherLess, ['less']);
   gulp.watch(input.jsSite, ['site-js']);
   gulp.watch(input.html, ['html']);

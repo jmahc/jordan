@@ -4,62 +4,135 @@
 .ts {
   padding: 45px 0;
 }
-.welcome {
-  &.welcome-hello {
-    font-size: 2em;
-  }
-  &.welcome-from {
-    margin-top: 15px;
-    font-size: 1.5em;
-  }
+
+body {
+  overflow-x: hidden;
 }
-#about {
-  .profile-pic {
-    height: 200px;
-  }
-}
-.portfolio {
-  .portfolio-item {
-    width: 100%;
-    margin: 30px 5px;
-    .item-image {
-      height: 100%;
-      vertical-align: middle;
-      width: 33%;
-      float: left;
-      display: inline-block;
-      .logo {
-        width: 80%;
-        display: inline-block;
+
+// .sidebar-offcanvas {
+//   position: fixed;
+//   right: -50%;
+// }
+// .sidebar-show {
+//   &.sidebar-offcanvas {
+//     top: 100px;
+//     right: 0;
+//     width: 50%; /* 6 columns */
+//   }
+// }
+
+.home-page {
+  // .row-offcanvas {
+  //   position: relative;
+  //   -webkit-transition: all .25s ease-out;
+  //        -o-transition: all .25s ease-out;
+  //           transition: all .25s ease-out;
+  // }
+  //
+  // .row-offcanvas-right {
+  //   right: 0;
+  // }
+  //
+  // .row-offcanvas-left {
+  //   left: 0;
+  // }
+  //
+  // .row-offcanvas-right .sidebar-offcanvas {
+  //     right: -50%; /* 6 columns */
+  //   }
+  //
+  // .row-offcanvas-left
+  //   .sidebar-offcanvas {
+  //     left: -50%; /* 6 columns */
+  //   }
+  //
+  // .row-offcanvas-right.sidebar-active {
+  //   right: 50%; /* 6 columns */
+  // }
+
+  // .row-offcanvas-left.sidebar-active {
+  //   left: 50%; /* 6 columns */
+  // }
+
+  #home {
+    height: 90vh;
+    .welcome {
+      &.welcome-hello {
+        font-size: 2em;
+      }
+      &.welcome-from {
+        margin-top: 15px;
+        font-size: 1.5em;
       }
     }
-    .item-information {
-      width: 66%;
-      display: inline-block;
-      .item-background {
-        display: none;
-      }
-      .item-description {
-        height: 100%;
-        h4 {
-          color: #000;
-          text-transform: uppercase;
-          font-size: 24px;
-          margin: 0 0 5px;
-        }
-        div {
-          font-size: 13px;
-          color: #000;
-          line-height: 15px;
-          a {
-            color: #fff;
-            text-decoration: none;
+  }
+  #about {
+    .profile-pic {
+      height: 200px;
+    }
+  }
+
+  #projects {
+    .portfolio {
+      .portfolio-item {
+        width: 100%;
+        margin: 30px 5px;
+
+        .item-image {
+          height: 100%;
+          vertical-align: middle;
+          width: 33%;
+          float: left;
+          display: inline-block;
+          .logo {
+            width: 80%;
+            display: inline-block;
           }
         }
-        .item-icons {
-          display: none;
+        .item-information {
+          width: 66%;
+          display: inline-block;
+          .item-background {
+            display: none;
+          }
+          .item-description {
+            height: 100%;
+            h4 {
+              color: #000;
+              text-transform: uppercase;
+              font-size: 24px;
+              margin: 0 0 5px;
+            }
+            div {
+              font-size: 13px;
+              color: #000;
+              line-height: 15px;
+              a {
+                color: #fff;
+                text-decoration: none;
+              }
+            }
+            .item-icons {
+              display: none;
+            }
+          }
         }
       }
     }
   }
+}
+
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+  padding-top: 70px;
+}
+footer {
+  padding: 30px 0;
 }

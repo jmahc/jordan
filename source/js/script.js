@@ -15,6 +15,7 @@ Jmac.global.init_variables = function() {
 }
 Jmac.global.init_methods = function() {
   var t = this;
+  console.log(';_; 0_o')
   $(function() {
     var hidden = "hidden";
     var oldTitle = document.title;
@@ -77,7 +78,7 @@ Jmac.nav.init = function() {
 Jmac.nav.init_variables = function() {
   var t = this;
 
-  t.$arrow = $('.arrow.bounce');
+  //t.$arrow = $('.arrow.bounce');
   t.$page = $('body');
   t.$nav = $('nav');
 }
@@ -89,16 +90,16 @@ Jmac.nav.init_methods = function() {
   t.$nav.affix();
 
   //navbar affix closes arrow
-  t.$nav.on('affixed.bs.affix', function() {
-    t.$arrow.fadeOut(200);
-  });
-  t.$nav.on('affixed-top.bs.affix', function() {
-    t.$arrow.fadeIn(200);
-  });
+  // t.$nav.on('affixed.bs.affix', function() {
+  //   t.$arrow.fadeOut(200);
+  // });
+  // t.$nav.on('affixed-top.bs.affix', function() {
+  //   t.$arrow.fadeIn(200);
+  // });
   //Remove arrow bounce
-  if (t.$nav.hasClass('affix')) {
-    t.$arrow.fadeOut(200);
-  }
+  // if (t.$nav.hasClass('affix')) {
+  //   t.$arrow.fadeOut(200);
+  // }
 
   //enables scrollspy for navbar
   t.$page.scrollspy({
