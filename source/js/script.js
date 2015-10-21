@@ -101,6 +101,13 @@ Jmac.nav.init_methods = function() {
   //   t.$arrow.fadeOut(200);
   // }
 
+  $(document).ready(function () {
+    $('[data-menu="offcanvas"]').on('click', function () {
+      $('.row-offcanvas').toggleClass('sidebar-active');
+      $('#navbar').toggleClass('sidebar-show');
+    });
+  });
+
   //enables scrollspy for navbar
   t.$page.scrollspy({
     target: '#navbar'
@@ -175,11 +182,11 @@ Jmac.home.init_methods = function() {
 
   $(function() {
     //close navbar menu on click mobile
-    $('.navbar-collapse ul li a:not(.dropdown-toggle)').bind('click touchstart', function() {
-      $(".navbar-nav li a").on('click', function(event) {
-        $(".navbar-collapse").collapse('hide');
-      });
-    });
+    // $('.navbar-collapse ul li a:not(.dropdown-toggle)').bind('click touchstart', function() {
+    //   $(".navbar-nav li a").on('click', function(event) {
+    //     $(".navbar-collapse").collapse('hide');
+    //   });
+    // });
 
     function preload(arrayOfImages) {
       $(arrayOfImages).each(function() {
