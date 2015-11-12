@@ -771,3 +771,181 @@ Jmac.weather.init_methods = function() {
     getLocation();
   })
 }
+
+
+
+
+Jmac.notation = {};
+
+Jmac.notation.init = function() {
+  var t = this;
+
+  t.init_variables();
+  t.init_methods();
+}
+
+Jmac.notation.init_variables = function() {
+  var t = this;
+
+  t.$footer = $(".footer");
+  t.dataa;
+}
+
+Jmac.notation.init_methods = function() {
+  var t = this;
+
+  t.$footer.addClass('notation-footer');
+
+
+
+  $(document).ready(function() {
+    console.log("See what happens..")
+      // The event listener for the file upload
+      document.getElementById('txtFileUpload').addEventListener('change', upload, false);
+      // Method that checks that the browser supports the HTML5 File API
+      function browserSupportFileUpload() {
+          var isCompatible = false;
+          if (window.File && window.FileReader && window.FileList && window.Blob) {
+            isCompatible = true;
+          }
+          return isCompatible;
+      }
+
+      // Method that reads and processes the selected file
+      function upload(evt) {
+        if (!browserSupportFileUpload()) {
+            console.log('The File APIs are not fully supported in this browser!');
+        } else {
+            console.log('Reading data...')
+            var data = null;
+            var file = evt.target.files[0];
+            var reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = function(event) {
+                var csvData = event.target.result;
+                data = $.csv.toArrays(csvData);
+                if (data && data.length > 0) {
+                  console.log('Imported -' + data.length + '- rows successfully!');
+                } else {
+                    console.log('No data to import!');
+                }
+                console.log(data.length)
+                spit(data);
+            };
+            reader.onerror = function() {
+                console.log('Unable to read ' + file.fileName);
+            };
+        }
+      }
+
+      function spit(what) {
+        $.each(what, function( i, val ) {
+          var arraySize = val.length;
+          var td = arrayParse(val);
+          addRow(i, td);
+        });
+
+        $('.export').show();
+      }
+
+      function arrayParse(array) {
+        var count = array.length;
+        var value = new Array();
+        var td = "";
+        $.each(array, function( i, val ) {
+          value = notationConverter(val);
+          td += "<td>" + value + "</td>";
+        });
+
+        return td;
+      }
+
+      function notationConverter(original) {
+        var arr = original.split('e-0');
+        var target = arr[0];
+        var amount = parseInt(arr[1]);
+        var TArray = target.split('.');
+        var scratch = TArray[0] + TArray[1];
+        var isMinus = false;
+        var final;
+        if (scratch.charAt(0) === "-")
+        {
+          isMinus = true;
+        }
+        if (isMinus)
+        {
+          var temp = scratch.split('-');
+          var before = doIt(temp[1], amount);
+          final = "-" + before;
+        } else {
+          final = doIt(scratch, amount);
+        }
+        return final;
+      }
+      function doIt(number, count) {
+        var zeroes = "";
+        for (i = 1; i < count + 1; i++) {
+            zeroes += "0";
+        }
+        var ya = "0." + zeroes + number;
+
+        return ya;
+      }
+      function addRow(row, column) {
+        $('#myTable tr:last').after(function() {
+          return "<tr>" + column + "</tr>";
+        });
+      }
+
+
+      function exportTableToCSV($table, filename) {
+
+        var $rows = $table.find('tr:has(td)'),
+
+            // Temporary delimiter characters unlikely to be typed by keyboard
+            // This is to avoid accidentally splitting the actual contents
+            tmpColDelim = String.fromCharCode(11), // vertical tab character
+            tmpRowDelim = String.fromCharCode(0), // null character
+
+            // actual delimiter characters for CSV format
+            colDelim = ',',
+            rowDelim = '\r\n',
+
+            // Grab text from table into CSV formatted string
+            csv = $rows.map(function (i, row) {
+                var $row = $(row),
+                    $cols = $row.find('td');
+
+                return $cols.map(function (j, col) {
+                    var $col = $(col),
+                        text = $col.text();
+
+                    return text; // escape double quotes
+
+                }).get().join(tmpColDelim);
+
+            }).get().join(tmpRowDelim)
+                .split(tmpRowDelim).join(rowDelim)
+                .split(tmpColDelim).join(colDelim),
+
+            // Data URI
+            csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
+
+        $(this)
+            .attr({
+            'download': filename,
+                'href': csvData,
+                'target': '_blank'
+        });
+    }
+
+      // This must be a hyperlink
+      $(".export").on('click', function (event) {
+          // CSV
+          exportTableToCSV.apply(this, [$('#myTable'), 'export.csv']);
+
+          // IF CSV, don't do event.preventDefault() or return false
+          // We actually need this to be a typical hyperlink
+      });
+    });
+}

@@ -1,0 +1,13 @@
+.notation-page.ts
+  #dvImportSegments.fileupload
+    fieldset
+      legend Upload your CSV File
+      input#txtFileUpload(type='file', name='File Upload', accept='.csv')
+  .convertme
+    a.export(href="#") Export to CSV
+    table#myTable
+      thead.table-head
+        tr
+          th ROWS
+      tbody.table-body
+        tr

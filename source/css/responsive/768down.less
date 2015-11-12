@@ -12,16 +12,56 @@ body {
 .sidebar-offcanvas {
   position: fixed;
   right: -50%;
+  transition: all .75s ease-in;
+  top: -7px;
+  z-index: -1;
+  height: 100%;
 }
 .sidebar-show {
   &.sidebar-offcanvas {
-    top: 100px;
     right: 0;
     width: 50%; /* 6 columns */
+    transition: all .25s ease-in;
   }
 }
 
 .home-page {
+  nav.navbar {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    .container {
+      .navbar-header {
+        button.navbar-toggle {
+          border: none;
+          &:hover,&:focus {
+            background-color: rgba(0,0,0,0);
+          }
+        }
+        a {
+          display: none;
+        }
+      }
+      #navbar {
+        ul {
+          height: 100%;
+          background: @color2;
+          li {
+            a {
+              color: @color3;
+              text-transform: uppercase;
+            }
+
+            &.active {
+              a {
+                color: @color1;
+                background: @color2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   .row-offcanvas {
     position: relative;
     -webkit-transition: all .25s ease-out;

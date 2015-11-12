@@ -1,0 +1,13 @@
+extends ../layout/layout
+block nav
+  include ../layout/nav_notation
+block content
+  section#notation
+    .container.centered.ts.bs
+      h3 Scientific Notation converter
+      .row.centered
+        include ../partials/notation/converter
+    .row
+block page_scripts
+  script.
+    Jmac.notation.init();
